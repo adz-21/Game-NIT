@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chain Reaction</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Start Screen -->
+    <div id="start-screen" class="screen active">
+        <div class="start-container">
+            <h1 class="game-title">Chain Reaction</h1>
+            <p class="subtitle">A tactical battle of explosions</p>
+            <div class="settings">
+                <div class="setting-group">
+                    <label for="player-count">Players:</label>
+                    <select id="player-count">
+                        <option value="2">2 Players</option>
+                        <option value="3">3 Players</option>
+                        <option value="4">4 Players</option>
+                    </select>
+                </div>
+                <div class="setting-group">
+                    <label for="grid-rows">Rows:</label>
+                    <select id="grid-rows">
+                        <option value="6">6</option>
+                        <option value="8">8</option>
+                        <option value="10">10</option>
+                        <option value="12" selected>12</option>
+                    </select>
+                </div>
+                <div class="setting-group">
+                    <label for="grid-cols">Columns:</label>
+                    <select id="grid-cols">
+                        <option value="6" selected>6</option>
+                        <option value="8">8</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
+                <div class="setting-group">
+                    <label for="turn-time">Turn Timer (sec):</label>
+                    <select id="turn-time">
+                        <option value="10">10</option>
+                        <option value="15" selected>15</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                    </select>
+                </div>
+                <div class="setting-group">
+                    <label for="game-time">Game Timer (min):</label>
+                    <select id="game-time">
+                        <option value="5">5</option>
+                        <option value="10" selected>10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                    </select>
+                </div>
+            </div>
+            <button id="start-btn" class="btn btn-primary">Start Game</button>
+        </div>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="game-screen" class="screen">
+        <div class="game-header">
+            <div class="timer-section">
+                <div class="timer game-timer">
+                    <span class="timer-label">Game</span>
+                    <span id="game-timer-display" class="timer-value">10:00</span>
+                </div>
+                <div class="timer turn-timer">
+                    <span class="timer-label">Turn</span>
+                    <span id="turn-timer-display" class="timer-value">15</span>
+                </div>
+            </div>
+            <div class="controls">
+                <button id="pause-btn" class="btn btn-small">Pause</button>
+                <button id="sound-btn" class="btn btn-small">Sound: ON</button>
+            </div>
+        </div>
+
+        <div class="player-info-bar" id="player-info-bar">
+            <!-- Player indicators populated by JS -->
+        </div>
+
+        <div class="current-turn-display">
+            <span id="current-player-name">Player 1's Turn</span>
+        </div>
+
+        <div class="grid-container" id="grid-container">
+            <!-- Grid populated by JS -->
+        </div>
+
+        <div class="scoreboard" id="scoreboard">
+            <!-- Scores populated by JS -->
+        </div>
+    </div>
+
+    <!-- Pause Modal -->
+    <div id="pause-modal" class="modal">
+        <div class="modal-content">
+            <h2>Game Paused</h2>
+            <button id="resume-btn" class="btn btn-primary">Resume</button>
+            <button id="restart-btn" class="btn btn-secondary">Restart</button>
+            <button id="quit-btn" class="btn btn-secondary">Quit to Menu</button>
+        </div>
+    </div>
+
+    <!-- Game Over Modal -->
+    <div id="gameover-modal" class="modal">
+        <div class="modal-content">
+            <h2 id="winner-text">Player 1 Wins!</h2>
+            <div id="final-scores" class="final-scores"></div>
+            <p id="win-reason" class="win-reason"></p>
+            <button id="play-again-btn" class="btn btn-primary">Play Again</button>
+            <button id="menu-btn" class="btn btn-secondary">Main Menu</button>
+        </div>
+    </div>
+
+    <script src="js/sound.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
